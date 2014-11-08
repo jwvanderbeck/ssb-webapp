@@ -1,0 +1,85 @@
+// CUSTOMIZE FOUNDATION
+// Customize all settings and stuff here. Yay!
+@import "settings";	
+
+
+
+// FOUNDATION
+// The core of the framework. Woo!
+@import "foundation";
+
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+.holobox-left-tall {
+	background-image: url('/img/components/holobox_left_tall.png');
+	width: 895px;
+	height: 819px;
+	background-repeat: no-repeat;
+	pdding: 50px;
+}
+
+.holobox-center {
+	background-image: url('/img/components/holobox_center.png');
+	width: 1170px;
+	height: 641px;
+	background-repeat: no-repeat;
+}
+
+.holobox-right-medium {
+	background-image: url('/img/components/holobox_right_medium.png');
+	width: 501px;
+	height: 676px;
+	background-repeat: no-repeat;
+}
+
+.holobox-right-short {
+	background-image: url('/img/components/holobox_right_short.png');
+	width: 501px;
+	height: 300px;
+	background-repeat: no-repeat;
+}
+
+.fixed-width {
+	position: absolute;
+	width: 1070px;
+}
+.band {
+	background: #EEE;  
+}
+
+nav {
+	background: $slate;
+	color: $secondary-color;
+	h1 {
+		font-size: 1rem; 
+	}
+}
+
+.img-bucket {
+	background: $secondary-color;
+}
+
+
+.slide-panel {
+  position: absolute;
+  display: flex;
+  bottom:0;
+  width:  100%;
+  height: 200px;
+  z-index: 100;
+}
+
+// Comment or uncomment out this line for debugging.
+// @include debug;
+
+.button [class*="fi-"] { 
+	position: relative;
+	top:2px;
+}
+#img-1, #img-2 {
+	// position: absolute;
+}
+#img-1 { z-index:1;}

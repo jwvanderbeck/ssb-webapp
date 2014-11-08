@@ -1,0 +1,51 @@
+doctype
+html(ng-app='application')
+head
+	title [ssb]API Portal
+	block scripts
+		if locals.showTests
+			link(rel='stylesheet', href='/lib/mocha.css')
+		link(rel='stylesheet', href='/css/app.css')
+		script(src='/js/app.js')
+		script(src='/js/angular-app.js')
+		link(rel='stylesheet', href='/lib/css/normalize.css')
+		script(src='/lib/js/modernizr.js')
+body
+	block topnav
+		.vertical.stretch.frame
+			.shrink.block
+				.content.block
+					h3 Stanton Space Barn
+			.stretch.block
+				.panel.panel-left.medium-3.content.medium-block#menu
+					section.block-list
+						header Developer Portal
+						ul
+							li
+								a(us-sref='/portal') Portal Home
+							li
+								a(us-sref='/portal/docs') Documentation
+							li
+								a(us-sref='/portal/api-changelog') API Changelog
+							li
+								a(us-sref='/portal/account') My Account
+	block maincontent
+	block endscripts
+		script(src='/lib/jquery.js')
+		script(src='/lib/js/foundation/foundation.min.js')
+		script(src='/lib/js/foundation/foundation.magellan.js')
+		script(src='/lib/js/foundation/foundation.topbar.js')
+		script(src='/lib/js/foundation/foundation.abide.js')
+
+		if locals.showTests
+			#mocha
+			script(src='/lib/mocha.js')
+			script(src='/lib/chai.js')
+			script.
+				mocha.ui('tdd');
+				var assert = chai.assert;
+			script(src='/client_tests/tests-global.js')
+			if locals.pageTestScript
+				script(src='#{pageTestScript}')
+			script.
+				mocha.run();

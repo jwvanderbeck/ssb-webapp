@@ -1,0 +1,29 @@
+doctype html
+html(ng-app='application')
+head
+	meta(name="viewport", content="width=device-width, initial-scale=1.0")
+	link(rel='stylesheet', href='/css/app.css')
+	link(rel='stylesheet', href='/lib/css/normalize.css')
+	script(src='/lib/js/modernizr.js')
+body(ng-controller='ViewController')
+	.frame.vertical
+		.block.content.shrink
+			h1 This is a Header
+		.block.stretch
+			fa-panel(position="left")#panel
+				p This is a panel
+			.block.content
+				.holobox-center
+					p This is some content
+			.block.content.align-right.shrink
+				.panel.panel-right.large-block
+					.holobox-right-short
+						p This is some more content
+						button(fa-toggle="panel") Toggle Panel
+						a(href='#' fa-toggle='panel') Toggle Panel
+				.panel.panel-right.large-block
+					.holobox-right-medium
+						p Panel content
+
+	script(src='/js/angular-app.js')
+	script(src='/js/app.js')

@@ -1,0 +1,6 @@
+{
+	"name": "ssb-foundation",
+	"dependencies": {
+		"foundation": "zurb/foundation-apps"    
+	}
+}

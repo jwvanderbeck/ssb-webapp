@@ -1,0 +1,72 @@
+// Foundation for Apps ALPHA
+// by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+$rem-base: 16px;
+$foundation-version: '0.0.1';
+
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+
+// Libraries (let's make Normalize an external dependency eventually)
+@import
+  "vendor/normalize";
+
+// Helpers
+@import
+  "helpers/functions",
+  "helpers/mixins",
+  "helpers/breakpoints",
+  "helpers/images";
+
+// Global styles
+@import
+  "global";
+
+// Components
+@import
+	"components/action-sheet",
+  "components/block-list",
+  "components/button",
+  "components/button-group",
+	"components/cards",
+	"components/forms",
+	"components/grid",
+	"components/title-bar",
+  "components/inline-elements",
+  "components/lists",
+	"components/menu-bar",
+	"components/modal",
+  "components/motion",
+  "components/notification",
+  "components/off-canvas",
+  "components/popup",
+  "components/switch",
+  "components/tabs",
+  "components/accordions",
+  "components/typography",
+  "components/utilities",
+  "components/coloring",
+	"components/z-index";
+
+// CSS property map test
+$settings: (
+  button: (
+    text: (
+      color: #fff,
+      background: $primary-color,
+      border: 0px solid darken($primary-color, 15%),
+      text-transform: uppercase,
+    ),
+  ),
+);
+@mixin styles($component, $element) {
+	$properties: map-get(map-get($settings, $component), $element);
+	@each $property, $value in $properties {
+		#{$property}: $value;
+	}
+}
+.test-button {
+	@include styles(button, text);
+}

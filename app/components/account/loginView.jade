@@ -1,0 +1,38 @@
+extends ./baseLayout.jade
+
+block maincontent
+	.vertical.stretch.frame
+		.shrink.block
+			.content.block
+				h3 Login
+	.row
+		.small-11.column.small-offset-1
+			h3.subheader You are not currently logged in
+			p.
+				To log in to your account, simply enter your email in the form.  A login link will be immediately emailed to you.
+			p.
+				Don't have an account? Doesn't matter!  It's all the same.  One of the beauties of a passwordless system.  Even if you've never been here before, just enter your email address and you will get a login link.  Your email address is your identifier.
+			p. 
+				No passwords to worry about.  Stanton Space Barn believes in the "<a href='https://medium.com/@ninjudd/passwords-are-obsolete-9ed56d483eb' target='_blank'>No Password</a>" security model which is more secure than passwords, and more convient for the user.  Win, win!
+	if flash
+		.row
+			.small-11.column.small-offset-1
+				.alert-box.success.radius
+					p.
+						#{flash}
+	else
+		.row
+			.small-11.column.small-offset-1
+				form(action='/portal/login', method='POST', data-abide)
+					.row
+						.small-6.column
+							.row.collapse.postfix-round
+								.small-9.columns
+									input(type='email', name='user', placeholder='email address', required)
+									small.error A valid email address is required
+								.small-3.column
+									input(type='submit', value='Login').button.postfix
+	.row
+		.small-11.column.small-offset-1
+			p.
+				If you would prefer to link your account here to an existing Single Sign In system such as Google, Facebook, or Twitter -- That feature is coming soon.
