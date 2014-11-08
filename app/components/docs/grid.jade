@@ -10,20 +10,24 @@ body(ng-controller='ViewController')
 		.block.content.shrink
 			h1 This is a Header
 		.block.stretch
-			fa-panel(position="left")#panel
-				p This is a panel
+			fa-panel(position="left-stats", style="padding-top:1em;")#stats-panel
+				.holobox-left-tall
+			.block.content.small-5
 			.block.content
 				.holobox-center
-					p This is some content
-			.block.content.align-right.shrink
-				.panel.panel-right.large-block
+					button(fa-toggle="views-panel") Toggle Panel
+			.block.content(style="padding:0px;").align-right.shrink
+				fa-panel(position='right-views')#views-panel
 					.holobox-right-short
-						p This is some more content
-						button(fa-toggle="panel") Toggle Panel
-						a(href='#' fa-toggle='panel') Toggle Panel
-				.panel.panel-right.large-block
+						button(fa-toggle="stats-panel") Toggle Panel
+				.block.content
+				.block.content
+				.block.content
+				.block.content
+				.block.content
+				.block.content
+				fa-panel(position='right').large-block#loadout-panel
 					.holobox-right-medium
-						p Panel content
 
 	script(src='/js/angular-app.js')
 	script(src='/js/app.js')

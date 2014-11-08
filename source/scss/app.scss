@@ -3,11 +3,95 @@
 @import "settings";	
 
 
-
 // FOUNDATION
 // The core of the framework. Woo!
 @import "foundation";
 
+
+@mixin multistop-panel-layout(
+  $position: left,
+  $size: default,
+  $shadow: $panel-shadow,
+  $open-stop: default,
+  $closed-stop: default
+) {
+  @if $size == default {
+	@if $position == left or $position == right {
+	  $size: $panel-size-horizontal;
+	}
+	@if $position == top or $position == bottom {
+	  $size: $panel-size-vertical;
+	}
+  }
+  @if $open-stop == default {
+  	$open-stop: 0%;
+  }
+  @if $closed-stop == default {
+  	$closed-stop: -100%;
+  }
+  /*
+	Direction
+  */
+  @if $position == top {
+	top: 0;
+	left: 0;
+	width: 100%;
+	transform: translateY(-$closed-stop);
+
+	&.is-active {
+	  transform: translateY($open-stop);
+	}
+  }
+  @else if $position == right {
+	top: 0;
+	right: 0;
+	height: 100%;
+	transform: translateX($closed-stop);
+
+	&.is-active {
+	  transform: translateX($open-stop);
+	}
+  }
+  @else if $position == bottom {
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	transform: translateY(100%);
+
+	&.is-active {
+	  transform: translateY(0%);
+	}
+  }
+  @else if $position == left {
+	top: 0;
+	left: 0;
+	height: 100%;
+	transform: translateX(-$closed-stop);
+
+	&.is-active {
+	  transform: translateX($open-stop);
+	}
+  }
+
+  /*
+	Sizing
+  */
+  // Horizontal panels are always all the way tall and have a set width
+  @if $position == left or $position == right {
+	width: 100%;
+	@include breakpoint($size) {
+	  width: $size;
+	}
+  }
+  // (For now) vertical panels don't change size
+  @if $position == top or $position == bottom {
+	height: $size;
+  }
+}
+
+
+.panel-right-views  { @include multistop-panel-layout(right, 988px, 0, 0%, 50%); }
+.panel-left-stats   { @include multistop-panel-layout(left, default, 0, 0%, 90% ); }
 
 .no-scroll {
   overflow: hidden !important;
@@ -18,7 +102,7 @@
 	width: 895px;
 	height: 819px;
 	background-repeat: no-repeat;
-	pdding: 50px;
+	padding: 50px;
 }
 
 .holobox-center {
@@ -37,8 +121,8 @@
 
 .holobox-right-short {
 	background-image: url('/img/components/holobox_right_short.png');
-	width: 501px;
-	height: 300px;
+	width: 988px;
+	height: 249px;
 	background-repeat: no-repeat;
 }
 
